@@ -36,9 +36,10 @@ public class RegistroDeVendas {
 				if(produto != null) {
 					System.out.println(produto.getValor());
 				}
-			} catch (Exception e) {
+			} catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("deu exception no indice: " + i);
-				e.printStackTrace();
+			}catch (NullPointerException e) {
+				System.out.println("O array não foi instancido!");
 			}
 		}
 		
