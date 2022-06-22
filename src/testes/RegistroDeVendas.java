@@ -36,8 +36,9 @@ public class RegistroDeVendas {
 				if(produto != null) {
 					System.out.println(produto.getValor());
 				}
-			} catch (ArrayIndexOutOfBoundsException e) {
+			} catch (Exception e) {
 				System.out.println("deu exception no indice: " + i);
+				e.printStackTrace();
 			}
 		}
 		
