@@ -1,5 +1,7 @@
 package testes;
 
+import java.util.List;
+
 import metodologia4.Autor4;
 import metodologia4.CarrinhoDeCompras;
 import produtos.Ebook;
@@ -11,14 +13,14 @@ public class RegistroDeVendas {
 	public static void main(String[] args) {
 		
 		Autor4 autor = new Autor4();
-		autor.setNome("Murilo Henrique Alves Batista");
+		autor.setNome("Murilo Batista");
 		
 		LivroFisico fisico = new LivroFisico(autor);
-		fisico.setNome("Refinando conhecimentos em Java.");
+		fisico.setNome("Padrões de Projeto em Java.");
 		fisico.setValor(69.89);
 		
 		Ebook ebook = new Ebook(autor);
-		ebook.setNome("Refinando conhecimentos em Java.");
+		ebook.setNome("Algoritmos complexos em Java.");
 		ebook.setValor(34.90);
 		
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
@@ -28,21 +30,10 @@ public class RegistroDeVendas {
 		
 		System.out.println("Total " + carrinho.getTotal());
 		
-		Produto[] produtos = ((CarrinhoDeCompras) carrinho).getProdutos();
+		List<Produto> produtos = carrinho.getProdutos();
 		
-		for(int i = 0; i < produtos.length; i++) {
-			try {
-				Produto produto = produtos[i];
-				if(produto != null) {
-					System.out.println(produto.getValor());
-				}
-			} catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("deu exception no indice: " + i);
-			}catch (NullPointerException e) {
-				System.out.println("O array não foi instancido!");
-			}
+		for(Produto produto : produtos) {
+			System.out.println(produto);
 		}
-		
-		System.out.println("Fui executado!");
 	}
 }

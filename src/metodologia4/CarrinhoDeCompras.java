@@ -1,25 +1,28 @@
 package metodologia4;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import produtos.Produto;
 
 public class CarrinhoDeCompras {
 	
 	private double total;
-	private Produto[] produtos = new Produto[10];
-	private int contador = 0;
-
-	public void adiciona(Produto produto) {
-		System.out.println("Adiciona: " + produto);
-		this.produtos[contador] = produto;
-		contador ++;
-		this.total +=produto.getValor();
+	private List<Produto> produtos;
+	
+	public CarrinhoDeCompras() {
+		this.produtos = new ArrayList<Produto>();
 	}
 	
+	public void adiciona(Produto produto) {
+		this.produtos.add(produto);
+	}
+
 	public double getTotal() {
 		return total;
 	}
-	
-	public Produto[] getProdutos() {
+
+	public List<Produto> getProdutos() {
 		return produtos;
 	}
 }

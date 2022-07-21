@@ -19,7 +19,16 @@ public class LivroFisico extends Livros4 implements Promocional{
 		
 		double desconto = getValor() * porcentagem;
 		setValor(getValor() - desconto);
-		System.out.println("aplicando no Lvro Físico");
+		System.out.println("aplicando desconto no Livro Físico");
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return nome
+				+ "(Livro: " 
+				+ descricao
+				+ " Descricao: Automatizando padrões."  
+				+ ")";
 	}
 }

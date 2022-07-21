@@ -26,7 +26,17 @@ public class Ebook extends Livros4 implements Promocional{
 			
 			double desconto = this.getValor() * porcentagem;
 			this.setValor(this.getValor() - desconto);
+			System.out.println("aplicando desconto no Ebook");
 			return true;
 			
+		}
+
+		@Override
+		public String toString() {
+			return getNome()
+					+ "(Livro: " 
+					+ getDescricao()
+					+ " Descricao: Superando complexos."  
+					+ ")";
 		}
 }

@@ -1,18 +1,22 @@
 package produtos;
 
+import exception.AutorNuloException;
 import metodologia4.Autor4;
 
 public abstract class Livros4 implements Produto{
 	
-	private String nome;
-	private String descricao;
-	private String isbn;
-	private double valor;
-	private Autor4 autor;
+	protected String nome;
+	protected String descricao;
+	protected String isbn;
+	protected double valor;
+	protected Autor4 autor;
 	
 	public Livros4() {}
 	
 	public Livros4(Autor4 autor) {
+		if(autor == null) {
+			throw new AutorNuloException("O Autor do Livro pode ser nulo");
+		}
 		this.autor = autor;
 		this.isbn = "000-00-00000-00-0";
 	}
@@ -35,13 +39,6 @@ public abstract class Livros4 implements Produto{
 	boolean temAutor() {
 		return this.autor != null;
 	}
-	/*
-	public void adiciona(Livros4 livros4) {
-		System.out.println("Adiciona: " + livros4);
-		livros4.aplicaDescontoDe(0.16);
-		total += livros4.getValor();
-	}
-	*/
 	
 	public String getNome() {
 		return nome;
@@ -72,5 +69,11 @@ public abstract class Livros4 implements Produto{
 	}
 	public void setAutor(Autor4 autor) {
 		this.autor = autor;
+	}
+	
+	@Override
+	public int compareTo(Produto outro) {
+		
+		return (int) (this.getValor() - outro.getValor());
 	}
 }
